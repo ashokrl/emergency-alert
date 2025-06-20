@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="description" content="Emergency ambulance response system for drivers and public users - save lives with real-time alerts">
+    <meta name="theme-color" content="#dc2626">
+    <link rel="manifest" href="/manifest.json">
+    <title>Emergency Ambulance Response</title>
+    <style>
+      /* Prevent flash of unstyled content */
+      body { margin: 0; background: #f3f4f6; }
+      #root { min-height: 100vh; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(registration => console.log('SW registered'))
+            .catch(registrationError => console.log('SW registration failed'));
+        });
+      }
+    </script>
+  </body>
+</html>
